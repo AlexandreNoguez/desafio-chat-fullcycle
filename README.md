@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js Chat API com Prisma e SQLite
 
-## Getting Started
+Este projeto é uma aplicação **Next.js 15** que implementa uma **API de chats** com rotas REST, utilizando **Prisma ORM** com banco de dados **SQLite** e rodando em um ambiente **Docker**.
 
-First, run the development server:
+---
+
+## **📝 Funcionalidades**
+
+1. **API**:
+   - **POST /api/chats**: Cria um novo chat.
+   - **GET /api/chats**: Lista todos os chats.
+
+2. **Interface Web**:
+   - Lista de mensagens existentes.
+   - Formulário para enviar novas mensagens.
+
+3. **Tecnologias**:
+   - **Next.js** (Frontend e API).
+   - **Prisma ORM** (Banco de dados).
+   - **SQLite** (Banco de dados local).
+   - **Docker** e **Docker Compose**.
+
+---
+
+## **⚙️ Pré-requisitos**
+
+Antes de começar, você precisará ter instalado:
+
+- **Docker** e **Docker Compose**: [Guia de instalação](https://docs.docker.com/get-docker/)
+
+---
+
+## **🚀 Como rodar o projeto**
+
+### **1. Clone o repositório**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/nextjs-chat-api.git
+cd nextjs-chat-api
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Suba o projeto com Docker Compose**
+```bash
+docker-compose up --build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- O projeto será construído e estará disponível em [localhost:3000](http://localhost:3000).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **3. Testar as APIs**
 
-## Learn More
+- Você pode testar as rotas da API usando ferramentas como Insomnia, Postman ou diretamente via VSCode com o arquivo api.http fornecido.
 
-To learn more about Next.js, take a look at the following resources:
+### **4. Testar as APIs**
+```bash
+### Criar chat
+POST http://localhost:3000/api/chats
+Content-Type: application/json
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+{
+  "message": "Olá, mundo!"
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Listar chats
+GET http://localhost:3000/api/chats
+```
 
-## Deploy on Vercel
+🛠️ Tecnologias Utilizadas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 15
+- Prisma ORM
+- SQLite
+- Docker
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🖥️ Estrutura do Projeto
+
+```plaintext
+nextjs-chat-api/
+├── prisma/                  # Configuração do Prisma e banco SQLite
+│   ├── schema.prisma        # Modelo do banco de dados
+│   └── dev.db               # Arquivo do banco de dados SQLite
+├── src/
+│   ├── app/
+│   │   ├── page.tsx         # Página principal
+│   │   └── api/             # Rotas da API
+│   │       └── chats/      
+│   │           └── route.ts # Rotas POST e GET de chats
+│   ├── components/          # Componentes reutilizáveis
+│   │   ├── Chat.tsx         # Lista os chats
+│   │   └── SubmitChat.tsx   # Formulário para enviar chats
+├── .dockerignore            # Ignora arquivos no Docker
+├── Dockerfile               # Configuração do Docker
+├── docker-compose.yml       # Configuração do Docker Compose
+├── api.http                 # Exemplo de chamadas para a API
+├── package.json             # Dependências do projeto
+└── README.md                # Documentação
+```
+
+## 🧑‍💻 Autor
+- Desenvolvido por **Alexandre Noguez**
+- 🔗 [LinkedIn](https://www.linkedin.com/in/alexandre-noguez/)

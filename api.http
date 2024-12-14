@@ -1,0 +1,10 @@
+### Criar chat
+POST http://localhost:3000/api/chats
+Content-Type: application/json
+
+{
+  "message": "Oi, meu nome é Lara! Como você está?"
+}
+
+### Listar chats
+GET http://localhost:3000/api/chats

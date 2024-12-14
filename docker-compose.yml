@@ -1,0 +1,13 @@
+services:
+  nextjs-app:
+    container_name: nextjs-chat-app
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=file:./dev.db
+    command: ./start.sh
